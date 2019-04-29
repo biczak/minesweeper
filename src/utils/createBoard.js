@@ -1,6 +1,6 @@
-const createNewBoard = (ROW_NUMBER, COLS_NUMBER, defaultValue) =>
+const createNewBoard = (ROW_NUMBER, COLUMNSNUMBER, defaultValue) =>
   Array.from(Array(ROW_NUMBER), () =>
-    Array.from(Array(COLS_NUMBER), () =>
+    Array.from(Array(COLUMNSNUMBER), () =>
       Object(defaultValue) === defaultValue ? Object.assign({}, defaultValue) : defaultValue
     )
   );

@@ -1,14 +1,14 @@
-import { cellStatus } from '../constants';
+import { cellStatus } from 'Constants/constants';
 
-const placeMines = (grid, mines) => {
-  const newGrid = Object.assign({}, grid);
+const placeMines = (gameBoard, mines) => {
+  const newGame = Object.assign({}, gameBoard);
 
   mines.forEach(mine => {
     const [col, row] = mine;
-    newGrid[col][row].status = cellStatus.CELL_MINE;
+    newGame[col][row].status = cellStatus.CELL_MINE;
   });
 
-  return newGrid;
+  return newGame;
 };
 
 export default placeMines;

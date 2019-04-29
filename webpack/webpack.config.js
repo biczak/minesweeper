@@ -33,11 +33,14 @@ module.exports = {
 
   resolve: {
     alias: {
+      Actions: resolve('src/actions/'),
       Components: resolve('src/components/'),
       Constants: resolve('src/constants/'),
       Containers: resolve('src/containers/'),
+      Reducers: resolve('src/reducers'),
       Routes: resolve('src/routes/'),
-      Utils: resolve('src/utils')
+      Store: resolve('src/store/'),
+      Utils: resolve('src/utils/')
     },
     extensions: ['.js', '.jsx']
   }

@@ -1,29 +1,29 @@
-import { cellStatus, ROW_BEGINNER, COL_BEGINNER, MINES_BEGINNER } from 'Constants/constants';
+import { cellStatus, ROWS_BEGINNER, COLUMNS_BEGINNER, MINES_BEGINNER } from 'Constants/constants';
 
 import locateMines from 'Utils/locateMines';
 import createBoard from 'Utils/createBoard';
 import placeMines from 'Utils/placeMines';
-import fillWarningNumbers from 'Utils/fill-warning-numbers';
+import checkNeighbors from 'Utils/checkNeighbors';
 
 const initialState = () => {
-  const mines = locateMines(MINES_BEGINNER, ROW_BEGINNER);
+  const mines = locateMines(MINES_BEGINNER, ROWS_BEGINNER);
 
-  const initialGrid = createBoard(ROW_BEGINNER, COL_BEGINNER, {
+  const initialGameBoard = createBoard(ROWS_BEGINNER, COLUMNS_BEGINNER, {
     warning: 0,
     status: cellStatus.CELL_INITIAL
   });
 
-  const gridWithMines = placeMines(initialGrid, mines);
+  const gameBoardWithMines = placeMines(initialGameBoard, mines);
 
-  const gridWithWarningNumbers = fillWarningNumbers(gridWithMines, mines);
+  const gameBoard = checkNeighbors(gameBoardWithMines, mines);
 
   return {
-    grid: {
-      grid: gridWithWarningNumbers,
-      rows: ROW_BEGINNER,
-      cols: COL_BEGINNER,
+    gameBoard: {
+      gameBoard,
+      rows: ROWS_BEGINNER,
+      cols: COLUMNS_BEGINNER,
       mines: MINES_BEGINNER,
-      level: 'Beginner',
+      difficulty: 'Beginner',
       date: Date.now()
     }
   };
